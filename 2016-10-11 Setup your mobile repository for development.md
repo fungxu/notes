@@ -32,6 +32,17 @@ deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ wily-backports main univer
 deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ wily-proposed main universe multiverse restricted
 ```
 
+on cubieboard A10
+
+```
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ trusty main universe multiverse restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ trusty-security main universe multiverse restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ trusty-updates main universe multiverse restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ trusty-backports main universe multiverse restricted
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ trusty-proposed main universe multiverse restricted
+
+```
+
 ### 3.2 install `apt-mirror`
 
 ```
