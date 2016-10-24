@@ -2,3 +2,53 @@ Btrace And JVM Tunning
 ===
 
 Fung.Xu @ 2016.10
+
+
+# To solve the problem, we should do it step by step.
+
+![](http://newimg.globalmarket.com/group0/b4/cd/d5bebef39cadecbc1cc8c7636c99.png)
+
+# jvm extra options :
+
+## check gc details:
+
+- `-XX:+PrintGC`
+
+```
+
+[GC 118250K->113543K(130112K), 0.0094143 secs]
+[Full GC 121376K->10414K(130112K), 0.0650971 secs]
+
+```
+
+- `-XX:+PrintGCDetails`
+
+```
+[GC [DefNew: 8614K->781K(9088K), 0.0123035 secs] 118250K->113543K(130112K), 0.0124633 secs]
+[GC [DefNew: 8614K->8614K(9088K), 0.0000665 secs][Tenured: 112761K->10414K(121024K), 0.0433488 secs] 121376K->10414K(130112K), 0.0436268 secs]
+
+```
+
+- `-XX:+PrintGC:PrintGCTimeStamps`
+
+```
+[GC 98328K->93620K(130112K), 0.0082960 secs]
+```
+
+- `-XX:+PrintGCApplicationStoppedTime`
+
+```
+Total time for which application threads were stopped: 0.0468229 seconds
+```
+
+- `-XX:+PrintGCApplicationConcurrentTime`
+
+```
+Application time: 0.5291524 seconds
+```
+
+sample
+
+```
+-Xmx4000M -Xms4000M -Xmn600M -XX:PermSize=500M -XX:MaxPermSize=500M -Xss256K -XX:+DisableExplicitGC -XX:SurvivorRatio=1 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0 -XX:+CMSClassUnloadingEnabled -XX:LargePageSizeInBytes=128M -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+PrintClassHistogram -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC -Xloggc:log/gc.log
+```

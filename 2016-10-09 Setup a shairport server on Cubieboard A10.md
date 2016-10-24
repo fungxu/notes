@@ -1,4 +1,4 @@
-Setup a shareport (airplay) server on linux ubuntu arm server
+Setup a shairport (airplay) server on linux ubuntu arm server
 ===
 
 Fung 2016.10
@@ -165,3 +165,4 @@ alsa = {
 ```
 update-rc.d shairport-sync defaults 90 10
 ```
+
